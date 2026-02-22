@@ -17,7 +17,7 @@ async function sendQuestion() {
   addMessage(question, "user");
   input.value = "";
 
-  addMessage("EduBot is typing...", "bot");
+  addMessage("chatBot is typing...", "bot");
 
   try {
     const res = await fetch("/ask", {

@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
 dotenv.config();
+
 import express from "express";
 import fetch from "node-fetch";
 import cors from "cors";
@@ -8,7 +9,13 @@ import bodyParser from "body-parser";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const HF_API_KEY = "process.env.HF_API_KEY";
+const HF_API_KEY = process.env.HF_API_KEY;  
+
+// Check if API key exists
+if (!HF_API_KEY) {
+    console.error("❌ ERROR: HF_API_KEY not found in .env file!");
+    process.exit(1);
+}
 
 app.use(cors());
 app.use(bodyParser.json());
